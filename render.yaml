@@ -1,0 +1,12 @@
+# Blueprint de Render: sitio estático servido tal cual desde la raíz del repo.
+# Al conectar este repo en Render (New → Blueprint) crea el servicio con esta configuración.
+services:
+  - type: web
+    name: propertymaps
+    runtime: static
+    buildCommand: "true"
+    staticPublishPath: .
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=86400
